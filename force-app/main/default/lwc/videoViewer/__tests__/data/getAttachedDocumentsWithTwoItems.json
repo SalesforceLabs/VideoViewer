@@ -1,0 +1,19 @@
+[
+  {
+    "ContentDocumentId": "0690U000001PNqVQAW",
+    "Id": "06A0U0000024SKzUAM",
+    "ContentDocument": {
+      "Title": "Test File 1",
+      "Description": "Description for Test File 1",
+      "Id": "0690U000001PNqVQAW"
+    }
+  },
+  {
+    "ContentDocumentId": "06A0U0000024SL4UAM",
+    "Id": "06A0U0000024SL4UAM",
+    "ContentDocument": {
+      "Title": "Test File 2",
+      "Id": "0690U000001PNqaQAG"
+    }
+  }
+]

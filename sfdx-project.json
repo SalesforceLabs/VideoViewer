@@ -1,0 +1,19 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "Video Viewer",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "videoviewer",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "Video Viewer": "0Ho5w000000PB2cCAG",
+        "Video Viewer@0.1.0-1": "04t5w000003ItwOAAS",
+        "Video Viewer@0.1.0-2": "04t5w000003IuPNAA0"
+    }
+}
