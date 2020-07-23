@@ -9,9 +9,12 @@ This repository contains code for the Video Viewer LWC.
 The Video Viewer component allows you to play any supported video file natively in Salesforce. Currently the following video files are supported - mp4, mov, webm and m4v. There are 2 ways you can use this component.
 
 #### Record Detail Page
+![Video Viewer on Record Detail Page](https://user-images.githubusercontent.com/12212922/88290620-10297f00-ccc5-11ea-8fa8-bd57f028e1d0.png)
+
 Any supported video files attached with this record can now be viewed directly through the component. You can click Previous or Next Buttons to navigate to a different video.
 
 #### File Detail Page
+![Video Viewer on File Detail Page to Preview Videos](https://user-images.githubusercontent.com/12212922/88290658-1cadd780-ccc5-11ea-8e89-d77cee29c399.png)
 You can also view a supported file directly on a file (ContentDocument) page.
 
 ##  Features:
