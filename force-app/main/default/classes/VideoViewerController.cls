@@ -33,6 +33,12 @@ public with sharing class VideoViewerController {
 
   @AuraEnabled(cacheable=true)
   public static String getBaseUrl() {
-    return System.URL.getOrgDomainUrl().toExternalForm();
+    if(Network.getNetworkId() == null){
+      String baseURL = System.URL.getSalesforceBaseUrl().toExternalForm();
+      baseURL =  baseURL.split('\\.')[0];
+      return baseURL+'--c'+'.documentforce.com';
+    }else{
+      return System.URL.getSalesforceBaseUrl().toExternalForm();
+    }
   }
 }
