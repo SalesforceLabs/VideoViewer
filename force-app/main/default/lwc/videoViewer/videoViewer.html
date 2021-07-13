@@ -1,88 +1,94 @@
 <template>
-  <lightning-card icon-name="custom:custom21" class="forceBaseCard">
-    <span
-      slot="title"
-      class="header-title-container slds-card__header slds-p-left_none slds-card__header-title slds-truncate"
-      title={computedTitle}
-      >{computedTitle}
-    </span>
-    <div class="video-container" if:false={hasNoVideos}>
-      <h3 class="slds-text-align_center slds-p-top_small">
-        <span class="slds-text-heading_medium" if:true={showVideoName}
-          >{currentVideoTitle}</span
-        >
-      </h3>
-      <div class="slds-align_absolute-center" if:false={hasError}>
-        <template if:true={hasLoadingCompleted}>
-          <video
-            controls
-            preload="auto"
-            width={width}
-            height={height}
-            src={currentVideoUrl}
-            muted={muted}
+  <template if:false={hideIfNoVideoAvailable}>
+    <lightning-card icon-name="custom:custom21" class="forceBaseCard">
+      <span
+        slot="title"
+        class="
+          header-title-container
+          slds-card__header
+          slds-p-left_none
+          slds-card__header-title
+          slds-truncate
+        "
+        title={computedTitle}
+        >{computedTitle}
+      </span>
+      <div class="video-container" if:false={hasNoVideos}>
+        <h3 class="slds-text-align_center slds-p-top_small">
+          <span class="slds-text-heading_medium" if:true={showVideoName}
+            >{currentVideoTitle}</span
           >
-            <p>
-              {errorMessage}
-            </p>
-          </video>
+        </h3>
+        <div class="slds-align_absolute-center" if:false={hasError}>
+          <template if:true={hasLoadingCompleted}>
+            <video
+              controls
+              preload="auto"
+              width={width}
+              height={height}
+              src={currentVideoUrl}
+              muted={muted}
+            >
+              <p>{errorMessage}</p>
+            </video>
+          </template>
+          <template if:false={hasLoadingCompleted}>
+            <lightning-spinner
+              alternative-text="Loading Video"
+            ></lightning-spinner>
+          </template>
+        </div>
+        <template if:true={hasError}>
+          <div class="slds-align_absolute-center error-message">
+            <div class="empty-state-container slds-text-align_center">
+              <img
+                src="/_slds/images/illustrations/empty-states/desertSmall.svg"
+                aria-hidden="true"
+                alt=""
+              />
+              <div class="empty-state-message slds-m-top_medium">
+                {errorMessage}
+              </div>
+            </div>
+          </div>
         </template>
-        <template if:false={hasLoadingCompleted}>
-          <lightning-spinner
-            alternative-text="Loading Video"
-          ></lightning-spinner>
-        </template>
+        <p
+          class="slds-text-body_regular slds-p-around_medium video-description"
+          if:true={showVideoDescription}
+        >
+          {currentVideoDescription}
+        </p>
       </div>
-      <template if:true={hasError}>
-        <div class="slds-align_absolute-center error-message">
+
+      <template if:true={hasNoVideos}>
+        <div class="slds-align_absolute-center">
           <div class="empty-state-container slds-text-align_center">
-            <img
-              src="/_slds/images/illustrations/empty-states/desertSmall.svg"
-              aria-hidden="true"
-              alt=""
-            />
-            <div class="empty-state-message slds-m-top_medium">
-              {errorMessage}
+            <img src="/img/lbpm/empty.svg" aria-hidden="true" alt="" />
+            <div class="empty-state-message slds-m-top_medium no-video-message">
+              {noVideoMessage}
             </div>
           </div>
         </div>
       </template>
-      <p
-        class="slds-text-body_regular slds-p-around_medium video-description"
-        if:true={showVideoDescription}
-      >
-        {currentVideoDescription}
+      <p slot="footer" if:true={showNavigation}>
+        <lightning-button-icon
+          icon-name="utility:chevronleft"
+          variant="border-filled"
+          alternative-text="Previous Video"
+          title="Previous"
+          disabled={previousButtonDisabled}
+          onclick={handlePreviousClick}
+        ></lightning-button-icon>
+        <lightning-button-icon
+          icon-name="utility:chevronright"
+          variant="border-filled"
+          alternative-text="Next Video"
+          class="slds-m-left_xx-small"
+          title="Next"
+          disabled={forwardButtonDisabled}
+          onclick={handleNextClick}
+        ></lightning-button-icon>
       </p>
-    </div>
-
-    <template if:true={hasNoVideos}>
-      <div class="slds-align_absolute-center">
-        <div class="empty-state-container slds-text-align_center">
-          <img src="/img/lbpm/empty.svg" aria-hidden="true" alt="" />
-          <div class="empty-state-message slds-m-top_medium no-video-message">
-            {noVideoMessage}
-          </div>
-        </div>
-      </div>
-    </template>
-    <p slot="footer" if:true={showNavigation}>
-      <lightning-button-icon
-        icon-name="utility:chevronleft"
-        variant="border-filled"
-        alternative-text="Previous Video"
-        title="Previous"
-        disabled={previousButtonDisabled}
-        onclick={handlePreviousClick}
-      ></lightning-button-icon>
-      <lightning-button-icon
-        icon-name="utility:chevronright"
-        variant="border-filled"
-        alternative-text="Next Video"
-        class="slds-m-left_xx-small"
-        title="Next"
-        disabled={forwardButtonDisabled}
-        onclick={handleNextClick}
-      ></lightning-button-icon>
-    </p>
-  </lightning-card>
+    </lightning-card>
+  </template>
 </template>

@@ -63,6 +63,10 @@ export default class VideoViewer extends LightningElement {
   @api
   showVideoDescription;
 
+  // Hide if no video is available ?
+  @api
+  hideIfNoVideoAvailable;
+
   // Message when there is no supported video attached to the record
   @api
   noVideoMessage;
