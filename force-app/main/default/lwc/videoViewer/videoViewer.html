@@ -1,5 +1,5 @@
 <template>
-  <template if:false={hideIfNoVideoAvailable}>
+  <template if:true={computedShowComponent}>
     <lightning-card icon-name="custom:custom21" class="forceBaseCard">
       <span
         slot="title"
