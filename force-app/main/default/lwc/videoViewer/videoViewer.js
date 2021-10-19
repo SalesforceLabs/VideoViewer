@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { LightningElement, api, wire } from "lwc";
+import { LightningElement, api, wire, track } from "lwc";
 import getAttachedDocuments from "@salesforce/apex/VideoViewerController.getAttachedDocuments";
 import getBaseUrl from "@salesforce/apex/VideoViewerController.getBaseUrl";
 import CONTENTDOCUMENT_OBJECT from "@salesforce/schema/ContentDocument";
@@ -63,6 +63,10 @@ export default class VideoViewer extends LightningElement {
   @api
   showVideoDescription;
 
+  // Hide if no video is available ?
+  @api
+  hideIfNoVideoAvailable;
+
   // Message when there is no supported video attached to the record
   @api
   noVideoMessage;
@@ -83,6 +87,7 @@ export default class VideoViewer extends LightningElement {
   videoMap = {};
 
   // private variable to keep count of the video the user is on
+  @track
   _currentVideoCount = 0;
 
   // Title for the current video
@@ -92,6 +97,7 @@ export default class VideoViewer extends LightningElement {
   currentVideoDescription;
 
   // Total number of videos
+  @track
   totalVideos = 0;
 
   // Flag to enable/disable navigation's forward button
@@ -176,6 +182,10 @@ export default class VideoViewer extends LightningElement {
     this.currentVideoDescription = currentVideo.ContentDocument.Description;
     this.currentVideoUrl = this.baseVideoUrl + currentDocumentId;
     this._currentVideoCount = count;
+  }
+
+  get computedShowComponent() {
+    return this.totalVideos > 0 || !this.hideIfNoVideoAvailable;
   }
 
   // Event handler for previous button click

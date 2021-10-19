@@ -1,110 +1,228 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-   <apiVersion>48.0</apiVersion>
+   <apiVersion>52.0</apiVersion>
    <masterLabel>Video Viewer</masterLabel>
-   <description>View videos attached to record detail pages, chatter or file detail pages.</description>
+   <description
+  >View videos attached to record detail pages, chatter or file detail pages.</description>
    <isExposed>true</isExposed>
    <targets>
       <target>lightning__RecordPage</target>
-   </targets>
+      <target>lightningCommunity__Page</target>
+      <target>lightningCommunity__Default</target>
+  </targets>
    <targetConfigs>
       <targetConfig targets="lightning__RecordPage">
          <property
-            name="title"
-            type="String"
-            default="Attached Videos"
-            label="Title"
-            placeholder="Enter title for the component"
-            description="Title for the component"
-         />
+        name="title"
+        type="String"
+        default="Attached Videos"
+        label="Title"
+        placeholder="Enter title for the component"
+        description="Title for the component"
+      />
          <property
-            name="muted"
-            type="Boolean"
-            label="Muted"
-            default="true"
-            description="Should the video start without sound (Recommended)"
-         />
+        name="muted"
+        type="Boolean"
+        label="Muted"
+        default="true"
+        description="Should the video start without sound (Recommended)"
+      />
+      <property
+        name="hideIfNoVideoAvailable"
+        type="Boolean"
+        label="Hide Component If No Video Available"
+        default="true"
+        description="Hide video Viewer component if no video is available"
+      />
          <property
-            name="showVideoCountInTitle"
-            type="Boolean"
-            label="Show Supported Video Count in Title"
-            default="true"
-            description="Displays a count of the number of available videos attached to the record when used on a record detail page"
-         />
+        name="showVideoCountInTitle"
+        type="Boolean"
+        label="Show Supported Video Count in Title"
+        default="true"
+        description="Displays a count of the number of available videos attached to the record when used on a record detail page"
+      />
          <property
-            name="showVideoName"
-            type="Boolean"
-            label="Show Video Title"
-            default="true"
-            description="Displays the title of the current video, when the component is present on a record detail page"
-         />
+        name="showVideoName"
+        type="Boolean"
+        label="Show Video Title"
+        default="true"
+        description="Displays the title of the current video, when the component is present on a record detail page"
+      />
          <property
-            name="showVideoDescription"
-            type="Boolean"
-            label="Show Video Description"
-            default="true"
-            description="Displays the description for the current video, when the component is present on a record detail page"
-         />
+        name="showVideoDescription"
+        type="Boolean"
+        label="Show Video Description"
+        default="true"
+        description="Displays the description for the current video, when the component is present on a record detail page"
+      />
          <property
-            name="desktopWidth"
-            type="String"
-            label=" Desktop Width"
-            default="400"
-            description="The width of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="desktopWidth"
+        type="String"
+        label=" Desktop Width"
+        default="400"
+        description="The width of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="desktopHeight"
-            type="String"
-            label="Desktop Height"
-            default="300"
-            description="The height of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="desktopHeight"
+        type="String"
+        label="Desktop Height"
+        default="300"
+        description="The height of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="tabletWidth"
-            type="String"
-            label="Tablet Width"
-            default="200"
-            description="The width of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="tabletWidth"
+        type="String"
+        label="Tablet Width"
+        default="200"
+        description="The width of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="tabletHeight"
-            type="String"
-            label="Tablet Height"
-            default="150"
-            description="The height of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="tabletHeight"
+        type="String"
+        label="Tablet Height"
+        default="150"
+        description="The height of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="mobileWidth"
-            type="String"
-            label="Mobile Width"
-            default="300"
-            description="The width of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="mobileWidth"
+        type="String"
+        label="Mobile Width"
+        default="300"
+        description="The width of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="mobileHeight"
-            type="String"
-            label="Mobile Height"
-            default="225"
-            description="The height of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
-         />
+        name="mobileHeight"
+        type="String"
+        label="Mobile Height"
+        default="225"
+        description="The height of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
+      />
          <property
-            name="noVideoMessage"
-            type="String"
-            default="There are no supported videos (mp4, webm, mov, m4v) attached with this record."
-            label="No Supported Videos Message"
-            description="The message to be dispalyed to the users when no supported video is attached to the record. This message is also displayed when viewing unsupported file formats on file details page"
-         />
+        name="noVideoMessage"
+        type="String"
+        default="There are no supported videos (mp4, webm, mov, m4v) attached with this record."
+        label="No Supported Videos Message"
+        description="The message to be dispalyed to the users when no supported video is attached to the record. This message is also displayed when viewing unsupported file formats on file details page"
+      />
          <property
-            name="errorMessage"
-            type="String"
-            default="There was an error playing the video."
-            label="Error Message"
-            description="The error message to be dispalyed to the users when there is an error playing the video."
-         />
+        name="errorMessage"
+        type="String"
+        default="There was an error playing the video."
+        label="Error Message"
+        description="The error message to be dispalyed to the users when there is an error playing the video."
+      />
          <supportedFormFactors>
             <supportedFormFactor type="Large" />
             <supportedFormFactor type="Small" />
         </supportedFormFactors>
+      </targetConfig>
+      <targetConfig targets="lightningCommunity__Default">
+         <property
+        name="recordId"
+        type="String"
+        label="Record ID"
+        description="Automatically bind the page's record id to the component variable"
+        default="{!recordId}"
+      />
+         <property
+        name="title"
+        type="String"
+        default="Attached Videos"
+        label="Title"
+        placeholder="Enter title for the component"
+        description="Title for the component"
+      />
+         <property
+        name="muted"
+        type="Boolean"
+        label="Muted"
+        default="true"
+        description="Should the video start without sound (Recommended)"
+      />
+      <property
+        name="hideIfNoVideoAvailable"
+        type="Boolean"
+        label="Hide If No Video Available"
+        default="true"
+        description="Hide if no video is available"
+      />
+         <property
+        name="showVideoCountInTitle"
+        type="Boolean"
+        label="Show Supported Video Count in Title"
+        default="true"
+        description="Displays a count of the number of available videos attached to the record when used on a record detail page"
+      />
+         <property
+        name="showVideoName"
+        type="Boolean"
+        label="Show Video Title"
+        default="true"
+        description="Displays the title of the current video, when the component is present on a record detail page"
+      />
+         <property
+        name="showVideoDescription"
+        type="Boolean"
+        label="Show Video Description"
+        default="true"
+        description="Displays the description for the current video, when the component is present on a record detail page"
+      />
+         <property
+        name="desktopWidth"
+        type="String"
+        label=" Desktop Width"
+        default="400"
+        description="The width of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="desktopHeight"
+        type="String"
+        label="Desktop Height"
+        default="300"
+        description="The height of the video's display area for desktop, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="tabletWidth"
+        type="String"
+        label="Tablet Width"
+        default="200"
+        description="The width of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="tabletHeight"
+        type="String"
+        label="Tablet Height"
+        default="150"
+        description="The height of the video's display area for tablets, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="mobileWidth"
+        type="String"
+        label="Mobile Width"
+        default="300"
+        description="The width of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="mobileHeight"
+        type="String"
+        label="Mobile Height"
+        default="225"
+        description="The height of the video's display area for mobile devices, in CSS pixels (absolute values only; no percentages.)"
+      />
+         <property
+        name="noVideoMessage"
+        type="String"
+        default="There are no supported videos (mp4, webm, mov, m4v) attached with this record."
+        label="No Supported Videos Message"
+        description="The message to be dispalyed to the users when no supported video is attached to the record. This message is also displayed when viewing unsupported file formats on file details page"
+      />
+         <property
+        name="errorMessage"
+        type="String"
+        default="There was an error playing the video."
+        label="Error Message"
+        description="The error message to be dispalyed to the users when there is an error playing the video."
+      />
       </targetConfig>
    </targetConfigs>
 </LightningComponentBundle>
