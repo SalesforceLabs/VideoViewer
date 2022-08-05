@@ -33,6 +33,6 @@ public with sharing class VideoViewerController {
 
   @AuraEnabled(cacheable=true)
   public static String getBaseUrl() {
-    return System.URL.getOrgDomainUrl().toExternalForm();
+    return 'https://' + DomainCreator.getContentHostname();
   }
 }

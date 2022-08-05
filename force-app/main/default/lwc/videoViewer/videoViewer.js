@@ -10,7 +10,6 @@ import getAttachedDocuments from "@salesforce/apex/VideoViewerController.getAtta
 import getBaseUrl from "@salesforce/apex/VideoViewerController.getBaseUrl";
 import CONTENTDOCUMENT_OBJECT from "@salesforce/schema/ContentDocument";
 import FORM_FACTOR from "@salesforce/client/formFactor";
-import { getBaseVideoUrl } from "./utils";
 
 /**
  * An LWC to play videos inline in an Org.
@@ -117,7 +116,8 @@ export default class VideoViewer extends LightningElement {
 
   // The base video download url for the org
   get baseVideoUrl() {
-    return getBaseVideoUrl(this.baseUrl.data);
+    const base = this.baseUrl.data;
+    return base ? base + "/sfc/servlet.shepherd/document/download/" : "";
   }
 
   // Get width according to the device's form factor
