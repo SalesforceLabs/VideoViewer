@@ -156,10 +156,9 @@ public class TestVideoViewerController {
   @isTest
   static void testGetBaseUrl() {
     String url = VideoViewerController.getBaseUrl();
-    System.assertNotEquals(
-      null,
-      url,
-      'The base url for the org cannot be null'
+    System.assert(
+      url != null && url.endsWith('.file.force.com'),
+      'The content base url must end with a valid domain'
     );
   }
 }
