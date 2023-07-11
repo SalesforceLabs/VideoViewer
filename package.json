@@ -24,7 +24,7 @@
     "prettier": "^2.0.4",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
-    "prettier-plugin-apex": "^1.0.0"
+    "prettier-plugin-apex": "^1.13.0"
   },
   "husky": {
     "hooks": {
